@@ -1,4 +1,6 @@
-<mat-form-field appearance="standard">
+<div class="container">
+
+  <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
@@ -54,9 +56,10 @@
   
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 
-    <button mat-fab color="accent" style="float: right" (click)="openDialog()">
+    <button mat-fab color="accent" style="float: right; margin-top: 16px;" (click)="openDialog()">
         <mat-icon>add</mat-icon>
     </button>
     
   </div>
   
+</div>

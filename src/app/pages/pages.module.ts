@@ -27,6 +27,10 @@ import { Not403Component } from './not403/not403.component';
 import { Not404Component } from './not404/not404.component';
 import { ForgotComponent } from './login/forgot/forgot.component';
 import { TokenComponent } from './login/forgot/token/token.component';
+import { ProfileComponent } from './profile/profile.component';
+import { VitalSignComponent } from './vital-sign/vital-sign.component';
+import { VitalSignEditComponent } from './vital-sign/vital-sign-edit/vital-sign-edit.component';
+import { PatientDialogComponent } from './patient/patient-dialog/patient-dialog.component';
 
 @NgModule({
     imports: [
@@ -61,7 +65,11 @@ import { TokenComponent } from './login/forgot/token/token.component';
         Not403Component,
         Not404Component,
         ForgotComponent,
-        TokenComponent
+        TokenComponent,
+        ProfileComponent,
+        VitalSignComponent,
+        VitalSignEditComponent,
+        PatientDialogComponent
     ],
     providers: [],
 })

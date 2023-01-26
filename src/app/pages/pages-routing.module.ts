@@ -11,10 +11,13 @@ import { MedicComponent } from './medic/medic.component';
 import { Not403Component } from './not403/not403.component';
 import { PatientEditComponent } from './patient/patient-edit/patient-edit.component';
 import { PatientComponent } from './patient/patient.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ReportComponent } from './report/report.component';
 import { SearchComponent } from './search/search.component';
 import { SpecialtyEditComponent } from './specialty/specialty-edit/specialty-edit.component';
 import { SpecialtyComponent } from './specialty/specialty.component';
+import { VitalSignEditComponent } from './vital-sign/vital-sign-edit/vital-sign-edit.component';
+import { VitalSignComponent } from './vital-sign/vital-sign.component';
 
 export const routes: Routes = [
     {
@@ -54,6 +57,16 @@ export const routes: Routes = [
         canActivate: [ GuardService ]
       },
       {
+        path: 'vital-sign',
+        component: VitalSignComponent,
+        data: { breadcrumb: 'Vital-Sign' },
+        children: [
+          { path: 'new', component: VitalSignEditComponent, data: { breadcrumb: 'vital-sign-new' } },
+          { path: 'edit/:id', component: VitalSignEditComponent, data: { breadcrumb: 'vital-sign-edit' } },
+        ],
+        canActivate: [GuardService]
+      },
+      {
         path: 'medic',
         component: MedicComponent,
         data: { breadcrumb: 'Medic' },
@@ -89,6 +102,11 @@ export const routes: Routes = [
         data: { breadcrumb: 'Report' },
         canActivate: [ GuardService ]
       },  
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        data: { breadcrumb: 'Profile' },
+      },
       {
         path: 'not-403',
         component: Not403Component

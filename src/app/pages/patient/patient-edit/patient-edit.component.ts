@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
@@ -11,6 +11,10 @@ import { PatientService } from 'src/app/service/patient.service';
   styleUrls: ['./patient-edit.component.css'],
 })
 export class PatientEditComponent implements OnInit {
+
+  @Input() isDialog: boolean;
+  @Input() closeDialog: () => void;
+
   id: number;
   isEdit: boolean;
   form: FormGroup;
@@ -112,6 +116,8 @@ export class PatientEditComponent implements OnInit {
         this.patientService.findAll().subscribe(data => {
           this.patientService.setPatientChange(data);
           this.patientService.setMessageChange('UPDATED!')
+
+          this._exit()
         });
       });
     } else {
@@ -122,12 +128,25 @@ export class PatientEditComponent implements OnInit {
       .subscribe(data => {
         this.patientService.setPatientChange(data);
         this.patientService.setMessageChange('CREATED!')
+
+        this._exit()
       });
     }
-    this.router.navigate(['/pages/patient']);
   }
 
   get f() {
     return this.form.controls;
+  }
+
+  _closeDialog() {
+    this.closeDialog();
+  }
+
+  _exit() {
+    if(!this.isDialog) {
+      this.router.navigate(['/pages/patient']);
+    } else {
+      this._closeDialog();
+    }
   }
 }

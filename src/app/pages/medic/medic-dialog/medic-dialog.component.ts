@@ -39,7 +39,7 @@ export class MedicDialogComponent implements OnInit {
         this.medicService.setMedicChange(data);
         this.medicService.setMessageChange('UPDATED!')
       });
-    }else{
+    } else{
       //INSERT
       this.medicService.save(this.medic).pipe(switchMap( ()=> {
         return this.medicService.findAll();
@@ -53,7 +53,7 @@ export class MedicDialogComponent implements OnInit {
   }
 
   close(){
-    this.dialogRef.close();        
+    this.dialogRef.close();
   }
 
 }

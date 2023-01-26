@@ -20,6 +20,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { environment } from 'src/environments/environment';
 import { ServerErrorsInterceptor } from './shared/server-errors.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PatientDialogComponent } from './patient/patient-dialog/patient-dialog.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem(environment.TOKEN_NAME);
@@ -28,7 +29,8 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent    
+    LoginComponent,
+    PatientDialogComponent    
   ],
   imports: [
     BrowserModule,
